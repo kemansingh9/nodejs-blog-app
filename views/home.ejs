@@ -1,0 +1,38 @@
+<% include partials/header %>
+<header class="masthead" style = "background-image: url('/img/home-bg.jpg')">
+	<div class = "overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="site-heading">
+					<h1>My Blog</h1>
+					<span class="subheading">A simple blog application made with NodeJS</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% posts.forEach((post)=>{%>
+					<div class="post-preview">
+					  <a href="/post/<%=post._id %>">
+					    <h2 class="post-title">
+					      <%=post.title %>
+					    </h2>
+					  </a>
+						<p class="post-meta">Posted by
+            <a href="#"><%= post.username %></a>
+            on <%= post.createdAt.toDateString() %>
+          </p>
+					</div>
+					<hr>
+					<%});%>
+					<div class="clearfix">
+					  <a href="#" class="btn btn-primary float-right">Older Posts &rarr;</a>
+					</div>
+    </div>
+  </div>
+</div>
+<% include partials/footer %>
